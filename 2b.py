@@ -13,12 +13,10 @@ for i in range(len(cap)):
 		for k in range(j+1, len(cap[i])):
 			if(cap[i][j]/cap[i][k] == cap[i][j]//cap[i][k]):
 				sum.append(cap[i][j]//cap[i][k])
-				print(cap[i][j]/cap[i][k])
 				trouve = True
 				break
 			elif(cap[i][k]/cap[i][j] == cap[i][k]//cap[i][j]):
 				sum.append(cap[i][k]//cap[i][j])
-				print(cap[i][k]/cap[i][j])
 				trouve = True
 				break
 		if(trouve): break		
