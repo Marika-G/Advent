@@ -14,8 +14,4 @@ grid = [[0]*99]*99
 pos_x = 49
 pos_y = 49
 grid[pos_y][pos_y] = 1
-'''
-while(value <= input){
-	
-}
-'''
+
