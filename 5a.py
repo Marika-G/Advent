@@ -4,7 +4,6 @@ with open('input.txt', 'r') as chemin:
 	instructions = [int(ligne) for ligne in chemin]
 
 position = 0
-mouvement = instructions[position]
 while(True):
 	try:
 		instructions[position] += 1
