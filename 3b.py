@@ -6,45 +6,62 @@
 304    5    4    2   57
 330   10    1    1   54
 351   11   23   25   26
-362  747  806  854  905
+362  747  806  854  905 
 '''
-ref = 854
-grid = [[0]*99]*99
-grid[49][49] = 1
-pos_x = 50
-pos_y = 49
-grid[pos_x][pos_y] = 1
-value = 0
+def imprime(table):
+	for i in table:
+		for el in i:
+			print(el, end='\t')
+		print("")
+	print("")
 
+def findNext(ref):
+	grid = [[0]*25 for i in range(26)]
+	imprime(grid)
+	grid[12][12] = 1
+	ligne = 12
+	colonne = 13
+	grid[ligne][colonne] = 1
+	imprime(grid)
+	value = 0
 
-while(grid[pos_x-1][pos_y] != 0):
-	pos_y -=1
-	value = grid[pos_x+1][pos_y] + grid[pos_x+1][pos_y+1] + grid[pos_x][pos_y+1] + grid[pos_x-1][pos_y+1] +  grid[pos_x-1][pos_y] + grid[pos_x-1][pos_y-1] + grid[pos_x][pos_y-1] + grid[pos_x+1][pos_y-1]
-	grid[pos_x][pos_y] = value
-	print(value)
-	print("\n")
+	while(True):
+		while(grid[ligne][colonne-1] != 0):
+			ligne -=1
+			value = grid[ligne+1][colonne] + grid[ligne+1][colonne+1] + grid[ligne][colonne+1] + grid[ligne-1][colonne+1] +  grid[ligne-1][colonne] + grid[ligne-1][colonne-1] + grid[ligne][colonne-1] + grid[ligne+1][colonne-1]
+			grid[ligne][colonne] = value
+			if(value > ref):
+				print(value)
+				imprime(grid)
+				return
 
-while(grid[pos_x][pos_y+1] != 0):
-	pos_x -= 1
-	value = grid[pos_x+1][pos_y] + grid[pos_x+1][pos_y+1] + grid[pos_x][pos_y+1] + grid[pos_x-1][pos_y+1] +  grid[pos_x-1][pos_y] + grid[pos_x-1][pos_y-1] + grid[pos_x][pos_y-1] + grid[pos_x+1][pos_y-1]
-	grid[pos_x][pos_y] = value
-	print(value)
-	print("\n")
+		while(grid[ligne+1][colonne] != 0):
+			colonne -= 1
+			value = grid[ligne+1][colonne] + grid[ligne+1][colonne+1] + grid[ligne][colonne+1] + grid[ligne-1][colonne+1] +  grid[ligne-1][colonne] + grid[ligne-1][colonne-1] + grid[ligne][colonne-1] + grid[ligne+1][colonne-1]
+			grid[ligne][colonne] = value
+			if(value > ref):
+				print(value)
+				imprime(grid)
+				return
 
-while(grid[pos_x+1][pos_y] != 0):
-	pos_y += 1
-	value = grid[pos_x+1][pos_y] + grid[pos_x+1][pos_y+1] + grid[pos_x][pos_y+1] + grid[pos_x-1][pos_y+1] +  grid[pos_x-1][pos_y] + grid[pos_x-1][pos_y-1] + grid[pos_x][pos_y-1] + grid[pos_x+1][pos_y-1]
-	grid[pos_x][pos_y] = value
-	print(value)
-	print("\n")
+		while(grid[ligne][colonne+1] != 0):
+			ligne += 1
+			value = grid[ligne+1][colonne] + grid[ligne+1][colonne+1] + grid[ligne][colonne+1] + grid[ligne-1][colonne+1] +  grid[ligne-1][colonne] + grid[ligne-1][colonne-1] + grid[ligne][colonne-1] + grid[ligne+1][colonne-1]
+			grid[ligne][colonne] = value
+			if(value > ref):
+				print(value)
+				imprime(grid)
+				return
 
-while(grid[pos_x][pos_y-1] != 0):
-	pos_x += 1
-	value = grid[pos_x+1][pos_y] + grid[pos_x+1][pos_y+1] + grid[pos_x][pos_y+1] + grid[pos_x-1][pos_y+1] +  grid[pos_x-1][pos_y] + grid[pos_x-1][pos_y-1] + grid[pos_x][pos_y-1] + grid[pos_x+1][pos_y-1]
-	grid[pos_x][pos_y] = value
-	print(value)
-	print("\n")
+		while(grid[ligne-1][colonne] != 0):
+			colonne += 1
+			value = grid[ligne+1][colonne] + grid[ligne+1][colonne+1] + grid[ligne][colonne+1] + grid[ligne-1][colonne+1] +  grid[ligne-1][colonne] + grid[ligne-1][colonne-1] + grid[ligne][colonne-1] + grid[ligne+1][colonne-1]
+			grid[ligne][colonne] = value
+			if(value > ref):
+				print(value)
+				imprime(grid)
+				return
 
 	
-
+findNext(368078)
 
