@@ -8,10 +8,43 @@
 351   11   23   25   26
 362  747  806  854  905
 '''
-input = 854
+ref = 854
 grid = [[0]*99]*99
-
-pos_x = 49
+grid[49][49] = 1
+pos_x = 50
 pos_y = 49
-grid[pos_y][pos_y] = 1
+grid[pos_x][pos_y] = 1
+value = 0
+
+
+while(grid[pos_x-1][pos_y] != 0):
+	pos_y -=1
+	value = grid[pos_x+1][pos_y] + grid[pos_x+1][pos_y+1] + grid[pos_x][pos_y+1] + grid[pos_x-1][pos_y+1] +  grid[pos_x-1][pos_y] + grid[pos_x-1][pos_y-1] + grid[pos_x][pos_y-1] + grid[pos_x+1][pos_y-1]
+	grid[pos_x][pos_y] = value
+	print(value)
+	print("\n")
+
+while(grid[pos_x][pos_y+1] != 0):
+	pos_x -= 1
+	value = grid[pos_x+1][pos_y] + grid[pos_x+1][pos_y+1] + grid[pos_x][pos_y+1] + grid[pos_x-1][pos_y+1] +  grid[pos_x-1][pos_y] + grid[pos_x-1][pos_y-1] + grid[pos_x][pos_y-1] + grid[pos_x+1][pos_y-1]
+	grid[pos_x][pos_y] = value
+	print(value)
+	print("\n")
+
+while(grid[pos_x+1][pos_y] != 0):
+	pos_y += 1
+	value = grid[pos_x+1][pos_y] + grid[pos_x+1][pos_y+1] + grid[pos_x][pos_y+1] + grid[pos_x-1][pos_y+1] +  grid[pos_x-1][pos_y] + grid[pos_x-1][pos_y-1] + grid[pos_x][pos_y-1] + grid[pos_x+1][pos_y-1]
+	grid[pos_x][pos_y] = value
+	print(value)
+	print("\n")
+
+while(grid[pos_x][pos_y-1] != 0):
+	pos_x += 1
+	value = grid[pos_x+1][pos_y] + grid[pos_x+1][pos_y+1] + grid[pos_x][pos_y+1] + grid[pos_x-1][pos_y+1] +  grid[pos_x-1][pos_y] + grid[pos_x-1][pos_y-1] + grid[pos_x][pos_y-1] + grid[pos_x+1][pos_y-1]
+	grid[pos_x][pos_y] = value
+	print(value)
+	print("\n")
+
+	
+
 
