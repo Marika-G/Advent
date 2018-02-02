@@ -12,3 +12,5 @@ while(tuple(config) not in pastConfig):
 		toDist -= 1
 
 print(len(pastConfig))
+
+#des modifications
